@@ -1,4 +1,4 @@
-package com.jinseong.test.Controller;
+package com.jinseong.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jinseong.test.Model.User;
-import com.jinseong.test.service.AuthService;
-import com.jinseong.test.vo.JwtVO;
-import com.jinseong.test.vo.MessageVO;
+import com.jinseong.backend.Model.User;
+import com.jinseong.backend.service.AuthService;
+import com.jinseong.backend.vo.JwtVO;
+import com.jinseong.backend.vo.MessageVO;
 
 @RestController
 @RequestMapping("/api/auth")

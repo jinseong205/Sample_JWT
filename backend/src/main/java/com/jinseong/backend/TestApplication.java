@@ -1,4 +1,4 @@
-package com.jinseong.test;
+package com.jinseong.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

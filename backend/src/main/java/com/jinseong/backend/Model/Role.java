@@ -1,4 +1,4 @@
-package com.jinseong.test.Model;
+package com.jinseong.backend.Model;
 
 public enum Role {
     ADMIN,

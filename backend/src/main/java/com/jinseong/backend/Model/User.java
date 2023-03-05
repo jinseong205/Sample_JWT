@@ -1,4 +1,4 @@
-package com.jinseong.test.Model;
+package com.jinseong.backend.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

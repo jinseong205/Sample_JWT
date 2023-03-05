@@ -1,4 +1,4 @@
-package com.jinseong.test.Config;
+package com.jinseong.backend.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,9 +10,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.jinseong.test.auth.JwtAuthenticationFilter;
-import com.jinseong.test.auth.JwtUtils;
-import com.jinseong.test.auth.UserDetailsServiceImpl;
+import com.jinseong.backend.auth.JwtAuthenticationFilter;
+import com.jinseong.backend.auth.JwtUtils;
+import com.jinseong.backend.auth.UserDetailsServiceImpl;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

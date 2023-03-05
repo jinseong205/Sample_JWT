@@ -1,4 +1,4 @@
-package com.jinseong.test.service;
+package com.jinseong.backend.service;
 
 import java.util.Optional;
 
@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.jinseong.test.Model.User;
-import com.jinseong.test.auth.JwtUtils;
-import com.jinseong.test.repository.UserRepository;
+import com.jinseong.backend.Model.User;
+import com.jinseong.backend.auth.JwtUtils;
+import com.jinseong.backend.repository.UserRepository;
 
 @Service
 public class AuthService {

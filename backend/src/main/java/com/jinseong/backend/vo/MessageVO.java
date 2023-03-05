@@ -1,4 +1,4 @@
-package com.jinseong.test.vo;
+package com.jinseong.backend.vo;
 
 public class MessageVO {
     private String message;

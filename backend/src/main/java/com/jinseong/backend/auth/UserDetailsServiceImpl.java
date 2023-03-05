@@ -1,4 +1,4 @@
-package com.jinseong.test.auth;
+package com.jinseong.backend.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jinseong.test.Model.User;
-import com.jinseong.test.repository.UserRepository;
+import com.jinseong.backend.Model.User;
+import com.jinseong.backend.repository.UserRepository;
 
 /* 	
 Spring이 로그인 요청을 가로챌때, username, password 변수 2개를 가로채는데

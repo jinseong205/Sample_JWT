@@ -1,4 +1,4 @@
-package com.jinseong.test.auth;
+package com.jinseong.backend.auth;
 
 
 import java.util.Date;
