@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.5.6'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.jinseong'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-security'							/* Image Upload */
+
+
+	implementation 'commons-io:commons-io:2.6'														/* Image Upload */
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'							/* JPA */
+
+	implementation group: 'com.oracle.database.jdbc', name: 'ojdbc8', version: '21.8.0.0' 			/* Oracle ADW Connect */
+	implementation group: 'com.oracle.ojdbc', name: 'osdt_core', version: '19.3.0.0'
+	implementation group: 'com.oracle.database.security', name: 'osdt_cert', version: '21.8.0.0'
+	implementation group: 'com.oracle.database.security', name: 'oraclepki', version: '21.8.0.0'
+												
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'					/* JWT */				
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
+}
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
