@@ -14,6 +14,7 @@ import com.jinseong.backend.vo.MessageVO;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "http://localhost:3000") 
 public class UserController {
     @Autowired
     private AuthService authService;
