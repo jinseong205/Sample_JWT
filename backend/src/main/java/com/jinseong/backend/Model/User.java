@@ -9,12 +9,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "users")
 public class User {
     
@@ -29,6 +37,7 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @ColumnDefault("USER") //default 0
     private Role role;
 
 }

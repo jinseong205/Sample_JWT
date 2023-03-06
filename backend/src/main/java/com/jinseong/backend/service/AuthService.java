@@ -12,6 +12,9 @@ import com.jinseong.backend.Model.User;
 import com.jinseong.backend.auth.JwtUtils;
 import com.jinseong.backend.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class AuthService {
     @Autowired
@@ -23,19 +26,20 @@ public class AuthService {
 
     public void signup(User user) {
         User saveUser = new User();
-        user.setEmail(user.getEmail());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
+        saveUser.setEmail(user.getEmail());
+        saveUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(saveUser);
     }
 
     public String login(User user) {
         Optional<User> userOptional = userRepository.findByEmail(user.getEmail());
+        
         User findUser = userOptional.orElseThrow(() -> new UsernameNotFoundException("User not found!"));
 
-        if (!passwordEncoder.matches(user.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(user.getPassword(), findUser.getPassword())) {
             throw new BadCredentialsException("Incorrect password!");
         }
 
         return jwtUtils.generateToken(user.getEmail());
     }
-}
+}   

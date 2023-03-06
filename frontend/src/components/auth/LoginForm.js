@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { login } from "../services/auth.service";
+import { Link, useNavigate } from "react-router-dom";
+import authService from "../services/auth.service";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -8,7 +8,7 @@ const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,8 +17,8 @@ const LoginForm = () => {
     setLoading(true);
 
     try {
-      await login(email, password);
-      history.push("/");
+      await authService.login(email, password);
+      navigate("/");
       window.location.reload();
     } catch (error) {
       const resMessage =
@@ -36,15 +36,12 @@ const LoginForm = () => {
   return (
     <div className="col-md-12">
       <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
 
+        <Link to="/" style={{ textDecoration: "none" }}><h1>JWT Sample</h1></Link>
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="email">E-Mail</label>
+            &nbsp;
             <input
               type="text"
               className="form-control"
@@ -57,6 +54,7 @@ const LoginForm = () => {
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
+            &nbsp;
             <input
               type="password"
               className="form-control"
@@ -87,9 +85,6 @@ const LoginForm = () => {
             </div>
           )}
 
-          <div className="form-group">
-            <Link to={"/signup"}>Don't have an account?</Link>
-          </div>
         </form>
       </div>
     </div>

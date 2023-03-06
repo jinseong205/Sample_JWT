@@ -13,9 +13,12 @@ import com.jinseong.backend.service.AuthService;
 import com.jinseong.backend.vo.JwtVO;
 import com.jinseong.backend.vo.MessageVO;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000") 
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
     @Autowired
     private AuthService authService;

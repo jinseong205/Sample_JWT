@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/auth.service";
 
 const SignupForm = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [successful, setSuccessful] = useState(false);
@@ -11,12 +11,11 @@ const SignupForm = () => {
 
     const handleSignup = (e) => {
         e.preventDefault();
-
-        authService.signup(email, password).then(
+        authService.register(email, password).then(
             (response) => {
                 setMessage(response.data.message);
                 setSuccessful(true);
-                history.push("/login");
+                navigate("/login");
             },
             (error) => {
                 setMessage(error.response.data.message);
@@ -28,9 +27,11 @@ const SignupForm = () => {
     return (
         <div className="col-md-12">
             <div className="card card-container">
+                <Link to="/" style={{ textDecoration: "none" }}><h1>JWT Sample</h1></Link>
                 <form onSubmit={handleSignup}>
                     <div className="form-group">
-                        <label htmlFor="email">E-mail</label>
+                        <label htmlFor="email">E-Mail</label>
+                        &nbsp;
                         <input
                             type="text"
                             className="form-control"
@@ -44,6 +45,7 @@ const SignupForm = () => {
 
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
+                        &nbsp;
                         <input
                             type="password"
                             className="form-control"
