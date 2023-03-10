@@ -37,7 +37,7 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @ColumnDefault("USER") //default 0
+    @ColumnDefault("USER") 
     private Role role;
 
 }
